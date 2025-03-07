@@ -75,7 +75,7 @@ pub fn handler(ctx: Context<Subscribe>, how_many_cycles: i64) -> Result<()> {
 
     if !subscriber.has_already_been_initialized {
         subscriber.has_already_been_initialized = true;
-        subscriber.bump = *ctx.bumps.get("subscriber").unwrap();
+        subscriber.bump = ctx.bumps.subscriber;
         subscriber.authority = ctx.accounts.who_subscribes.key();
         subscriber.subscriber_payment_account = ctx.accounts.subscriber_payment_account.key();
         subscriber.subscription_accounts = vec![];
@@ -106,7 +106,7 @@ pub fn handler(ctx: Context<Subscribe>, how_many_cycles: i64) -> Result<()> {
         );
     } else {
         subscription.has_already_been_initialized = true;
-        subscription.bump = *ctx.bumps.get("subscription").unwrap();
+        subscription.bump = ctx.bumps.subscription;
         subscription.subscriber = subscriber.key();
         subscription.subscription_plan = subscription_plan.key();
 

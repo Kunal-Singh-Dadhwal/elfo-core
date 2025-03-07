@@ -30,10 +30,10 @@ pub struct InitializeProtocol<'info> {
 
 pub fn handler(ctx: Context<InitializeProtocol>) -> Result<()> {
     let protocol_signer = &mut ctx.accounts.protocol_signer;
-    protocol_signer.bump = *ctx.bumps.get("protocol_signer").unwrap();
+    protocol_signer.bump = ctx.bumps.protocol_signer;
 
     let protocol_state = &mut ctx.accounts.protocol_state;
-    protocol_state.bump = *ctx.bumps.get("protocol_state").unwrap();
+    protocol_state.bump = ctx.bumps.protocol_state;
     protocol_state.has_already_been_initialized = true;
     protocol_state.authority = ctx.accounts.authority.key();
     protocol_state.subscription_plan_accounts = vec![];

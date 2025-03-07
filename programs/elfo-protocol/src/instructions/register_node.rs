@@ -53,7 +53,7 @@ pub fn handler(ctx: Context<RegisterNode>) -> Result<()> {
 
     if !node.is_registered {
         node.is_registered = true;
-        node.bump = *ctx.bumps.get("node").unwrap();
+        node.bump = ctx.bumps.node;
         node.authority = ctx.accounts.authority.key();
         node.node_payment_wallet = ctx.accounts.node_payment_wallet.key();
         node.node_payment_account = ctx.accounts.node_payment_account.key();

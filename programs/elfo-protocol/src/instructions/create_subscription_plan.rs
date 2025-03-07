@@ -66,13 +66,13 @@ pub fn handler(
     if !subscription_plan_author.has_already_been_initialized {
         subscription_plan_author.has_already_been_initialized = true;
         subscription_plan_author.authority = ctx.accounts.authority.key();
-        subscription_plan_author.bump = *ctx.bumps.get("subscription_plan_author").unwrap();
+        subscription_plan_author.bump = ctx.bumps.subscription_plan_author;
         subscription_plan_author.subscription_plan_accounts = vec![];
     }
 
     let subscription_plan = &mut ctx.accounts.subscription_plan;
     subscription_plan.has_already_been_initialized = true;
-    subscription_plan.bump = *ctx.bumps.get("subscription_plan").unwrap();
+    subscription_plan.bump = ctx.bumps.subscription_plan;
     subscription_plan.plan_name = plan_name;
     subscription_plan.subscription_plan_author = subscription_plan_author.key();
     subscription_plan.subscription_plan_payment_account =
