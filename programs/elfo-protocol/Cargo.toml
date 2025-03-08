@@ -5,7 +5,7 @@ description = "A subscription protocol on solana"
 edition = "2018"
 license = "Apache-2.0"
 homepage = "https://eflo.cc/"
-repository = "https://github.com/elfo-protocol/elfo-core/"
+repository = "https://github.com/Kunal-Singh-Dadhwal/elfo-core/"
 documentation = "https://elfo.cc/docs"
 readme = "../../README.md"
 
@@ -22,4 +22,4 @@ default = []
 
 [dependencies]
 anchor-lang = { version = "0.30.0", features = ["init-if-needed"] }
-anchor-spl = "0.30.1"
+anchor-spl = "0.30.0"
